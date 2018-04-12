@@ -1,6 +1,10 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html">
 
+<!-polyfill intl cf https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Browser_Compatibility-->
+<script src="../../bower_components/intl/dist/Intl.js"></script>
+<script src="../../bower_components/intl/locale-data/jsonp/fr.js"></script>
+
 <script>
     class LocalizedComponent extends Polymer.mixinBehaviors([Polymer.AppLocalizeBehavior], Polymer.Element) {
         static get properties() {
