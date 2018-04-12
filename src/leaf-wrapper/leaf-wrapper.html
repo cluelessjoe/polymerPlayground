@@ -24,10 +24,7 @@
 
             connectedCallback() {
                 super.connectedCallback();
-                console.log("connectedCallback");
-
                 let mapId = this.shadowRoot.querySelector("#mapid");
-                console.log(mapId);
 
                 var mymap = L.map(mapId).setView([51.505, -0.09], 13)
 

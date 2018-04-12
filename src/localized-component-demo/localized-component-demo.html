@@ -1,0 +1,23 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html">
+<link rel="import" href="../localized-component/localized-component.html">
+
+<dom-module id="localized-component-demo">
+    <template>
+        <p>Localized content at component level: {{localize('hello', 'name', 'Batman')}}</p>
+    </template>
+    <script>
+        class LocalizedComponentDemo extends LocalizedComponent {
+
+            constructor() {
+                super();
+            }
+
+            static get is() {
+                return 'localized-component-demo';
+            }
+        }
+
+        customElements.define(LocalizedComponentDemo.is, LocalizedComponentDemo);
+    </script>
+</dom-module>

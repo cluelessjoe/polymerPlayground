@@ -1,0 +1,22 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html">
+
+<script>
+    class LocalizedComponent extends Polymer.mixinBehaviors([Polymer.AppLocalizeBehavior], Polymer.Element) {
+        static get properties() {
+            return {
+                language: {
+                    value: 'fr',
+                    type: String,
+                    notify: true,
+                },
+            };
+        }
+
+        ready() {
+            super.ready();
+            let path = this.resolveUrl('../localized-component/locales.json');
+            this.loadResources(path);
+        }
+    }
+</script>
