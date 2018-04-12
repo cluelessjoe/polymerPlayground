@@ -3,6 +3,9 @@
 <link rel="import" href="../playground-component/playground-component.html">
 <link rel="import" href="../leaf-wrapper/leaf-wrapper.html">
 
+<link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html">
+<!--<script src="../../bower_components/intl/Intl.js"></script>
+<script src="../../bower_components/intl/locale-data/jsonp/fr.js"></script>-->
 
 <dom-module id="playground-app">
     <template>
@@ -12,7 +15,11 @@
             }
         </style>
         <h2>Hello [[prop1]]!</h2>
+        <br/>
+        <p>And under some localized content </p>
+        <h3>{{localize('hello', 'name', 'Batman')}}</h3>
         <playground-component></playground-component>
+
         <leaf-wrapper></leaf-wrapper>
     </template>
 
@@ -21,7 +28,7 @@
          * @customElement
          * @polymer
          */
-        class PlaygroundApp extends Polymer.Element {
+        class PlaygroundApp extends Polymer.mixinBehaviors([Polymer.AppLocalizeBehavior], Polymer.Element) {
             static get is() {
                 return 'playground-app';
             }
@@ -31,8 +38,17 @@
                     prop1: {
                         type: String,
                         value: 'playground-app'
+                    },
+                    language: {
+                        value: 'fr'
                     }
+
                 };
+            }
+
+            attached() {
+                let path = this.resolveUrl('./locales.json');
+                this.loadResources(path);
             }
         }
 
