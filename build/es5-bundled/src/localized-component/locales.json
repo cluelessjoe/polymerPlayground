@@ -1,0 +1,4 @@
+{
+  "en": { "hello": "My name is {name}." },
+  "fr": { "hello": "Je m'appelle {name}." }
+}

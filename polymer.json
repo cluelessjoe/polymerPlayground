@@ -3,6 +3,8 @@
   "shell": "src/playground-app/playground-app.html",
   "fragments": [
     "src/leaf-wrapper/leaf-wrapper.html",
+    "src/localized-component/localized-component.html",
+    "src/localized-component-demo/localized-component-demo.html",
     "src/playground-component/playground-component.html"
   ],
   "lint": {
@@ -11,12 +13,6 @@
   "builds": [
     {
       "preset": "es5-bundled"
-    },
-    {
-      "preset": "es6-unbundled"
-    },
-    {
-      "preset": "es6-bundled"
     }
   ]
 }

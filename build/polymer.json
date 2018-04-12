@@ -3,6 +3,8 @@
   "shell": "src/playground-app/playground-app.html",
   "fragments": [
     "src/leaf-wrapper/leaf-wrapper.html",
+    "src/localized-component/localized-component.html",
+    "src/localized-component-demo/localized-component-demo.html",
     "src/playground-component/playground-component.html"
   ],
   "sources": [
@@ -10,6 +12,8 @@
     "index.html",
     "src/playground-app/playground-app.html",
     "src/leaf-wrapper/leaf-wrapper.html",
+    "src/localized-component/localized-component.html",
+    "src/localized-component-demo/localized-component-demo.html",
     "src/playground-component/playground-component.html"
   ],
   "extraDependencies": [
@@ -32,47 +36,6 @@
       "addServiceWorker": true,
       "addPushManifest": false,
       "preset": "es5-bundled"
-    },
-    {
-      "name": "es6-unbundled",
-      "browserCapabilities": [
-        "es2015",
-        "push"
-      ],
-      "js": {
-        "minify": true,
-        "compile": false
-      },
-      "css": {
-        "minify": true
-      },
-      "html": {
-        "minify": true
-      },
-      "bundle": false,
-      "addServiceWorker": true,
-      "addPushManifest": true,
-      "preset": "es6-unbundled"
-    },
-    {
-      "name": "es6-bundled",
-      "browserCapabilities": [
-        "es2015"
-      ],
-      "js": {
-        "minify": true,
-        "compile": false
-      },
-      "css": {
-        "minify": true
-      },
-      "html": {
-        "minify": true
-      },
-      "bundle": true,
-      "addServiceWorker": true,
-      "addPushManifest": false,
-      "preset": "es6-bundled"
     }
   ],
   "lint": {
