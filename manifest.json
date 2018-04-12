@@ -1,0 +1,6 @@
+{
+  "name": "playground",
+  "short_name": "playground",
+  "start_url": "/",
+  "display": "standalone"
+}

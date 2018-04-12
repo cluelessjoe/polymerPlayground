@@ -1,0 +1,22 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/playground-app/playground-app.html",
+  "fragments": [
+    "src/leaf-wrapper/leaf-wrapper.html",
+    "src/playground-component/playground-component.html"
+  ],
+  "lint": {
+    "rules": ["polymer-2"]
+  },
+  "builds": [
+    {
+      "preset": "es5-bundled"
+    },
+    {
+      "preset": "es6-unbundled"
+    },
+    {
+      "preset": "es6-bundled"
+    }
+  ]
+}

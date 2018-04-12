@@ -1,0 +1,37 @@
+<!-- Load the Polymer.Element base class -->
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="playground-component">
+    <!-- Defines the element's style and local DOM -->
+    <template>
+        <style>
+            :host {
+                display: block;
+
+                padding: 16px;
+            }
+        </style>
+
+        <h1>A component</h1>
+    </template>
+    <script>
+        // Your new element extends the Polymer.Element base class
+        class PlaygroundComponent extends Polymer.Element {
+
+            constructor(){
+                super();
+//                console.log(this.tagName);
+            }
+
+            connectedCallback(){
+                super.connectedCallback();
+//                console.log("connectedCallback");
+
+            }
+
+            static get is() { return 'playground-component'; }
+        }
+        //Now, register your new custom element so the browser can use it
+        customElements.define(PlaygroundComponent.is, PlaygroundComponent);
+    </script>
+</dom-module>
