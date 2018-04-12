@@ -15,13 +15,10 @@
                 display: block;
             }
         </style>
-        <h2>Hello [[prop1]]!</h2>
+        <h2>Affichage de la propriété prop1 : [[prop1]]!</h2>
         <br/>
-        <p>Localized content at the app level: {{localize('hello', 'name', 'Batman')}}</p>
-        <localized-component-demo></localized-component-demo>
-
         <playground-component></playground-component>
-
+        <localized-component-demo></localized-component-demo>
         <leaf-wrapper></leaf-wrapper>
     </template>
 
@@ -30,7 +27,7 @@
          * @customElement
          * @polymer
          */
-        class PlaygroundApp extends LocalizedComponent{
+        class PlaygroundApp extends LocalizedComponent {
             static get is() {
                 return 'playground-app';
             }
