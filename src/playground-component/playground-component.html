@@ -1,8 +1,11 @@
 <!-- Load the Polymer.Element base class -->
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
+
 <dom-module id="playground-component">
-    <!-- Defines the element's style and local DOM -->
+    <link rel="import" type="css" href="./css1.css"/>
+    <link rel="import" type="css" href="../css2.css"/>
+
     <template>
         <style>
             :host {
@@ -10,28 +13,32 @@
 
                 padding: 16px;
 
-                background-color: red;
             }
         </style>
 
         <h3>A component output</h3>
+        <p class="cssRed">imported css style if background red</p>
+        <p class="cssBlue">imported css style if background blue</p>
     </template>
     <script>
         class PlaygroundComponent extends Polymer.Element {
 
-            constructor(){
+            constructor() {
                 super();
 //                console.log(this.tagName);
             }
 
-            connectedCallback(){
+            connectedCallback() {
                 super.connectedCallback();
 //                console.log("connectedCallback called !");
 
             }
 
-            static get is() { return 'playground-component'; }
+            static get is() {
+                return 'playground-component';
+            }
         }
+
         //Now, register your new custom element so the browser can use it
         customElements.define(PlaygroundComponent.is, PlaygroundComponent);
     </script>
