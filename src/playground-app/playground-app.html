@@ -15,7 +15,7 @@
         </style>
         <h2>Affichage de la propriété prop1 : [[prop1]]!</h2>
         <br/>
-        <playground-component></playground-component>
+        <playground-component arrayvalue="{{arrayProp}}" string-value="{{stringProp}}"></playground-component>
         <localized-component-demo></localized-component-demo>
         <leaf-wrapper></leaf-wrapper>
     </template>
@@ -26,6 +26,11 @@
          * @polymer
          */
         class PlaygroundApp extends LocalizedComponent {
+            constructor(){
+                super();
+                this.arrayProp = ['Apple', 'Banana'];
+                this.stringProp = "bingo";
+            }
             static get is() {
                 return 'playground-app';
             }

@@ -1,6 +1,6 @@
 {
   "entrypoint": "index.html",
-  "shell": "index.html",
+  "shell": "src/playground-app/playground-app.html",
   "fragments": [
     "src/leaf-wrapper/leaf-wrapper.html",
     "src/localized-component/localized-component.html",
@@ -10,7 +10,7 @@
   "sources": [
     "src/**/*",
     "index.html",
-    "index.html",
+    "src/playground-app/playground-app.html",
     "src/leaf-wrapper/leaf-wrapper.html",
     "src/localized-component/localized-component.html",
     "src/localized-component-demo/localized-component-demo.html",

@@ -28,14 +28,36 @@
 //                console.log(this.tagName);
             }
 
+            static get properties(){
+                console.log("prop called");
+                return {
+                    stringValue: {
+                        type: String
+                    },
+                    arrayvalue:{
+                        type: Array,
+                        value: null
+                    },
+                    arrayslices:{
+                        type: Array
+                    }
+                };
+            }
+
+
+            static get is() {
+                return 'playground-component';
+            }
+
+            ready(){
+                super.ready();
+                console.log("arrayvalue", this.arrayvalue, "stringValue", this.stringValue);
+            }
+
             connectedCallback() {
                 super.connectedCallback();
 //                console.log("connectedCallback called !");
 
-            }
-
-            static get is() {
-                return 'playground-component';
             }
         }
 
