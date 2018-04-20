@@ -10,7 +10,6 @@
         <style>
             :host {
                 display: block;
-
                 padding: 16px;
 
             }
@@ -19,6 +18,14 @@
         <h3>A component output</h3>
         <p class="cssRed">imported css style if background red</p>
         <p class="cssBlue">imported css style if background blue</p>
+        <p>Array property:</p>
+        <ul>
+            <li><p>Content of the array '{{arrayvalue}}'
+                <p>
+            </li>
+            <li><p>Array's splices '{{splices}}'</p>
+            </li>
+        </ul>
     </template>
     <script>
         class PlaygroundComponent extends Polymer.Element {
@@ -26,30 +33,42 @@
             constructor() {
                 super();
 //                console.log(this.tagName);
+                this.splices = null;
             }
 
-            static get properties(){
+            static get properties() {
                 console.log("prop called");
                 return {
                     stringValue: {
                         type: String
                     },
-                    arrayvalue:{
+                    arrayvalue: {
                         type: Array,
                         value: null
                     },
-                    arrayslices:{
+                    arrayslices: {
                         type: Array
                     }
                 };
             }
 
+            static get observers() {
+                console.log("observers called");
+                return [
+                    '_arrayValueSplicesObserver(arrayvalue.splices)'
+                ];
+            }
 
             static get is() {
                 return 'playground-component';
             }
 
-            ready(){
+            _arrayValueSplicesObserver(splicesValue) {
+                console.log("_arrayValueSplicesObserver", splicesValue);
+                this.splices = JSON.stringify(splicesValue);
+            }
+
+            ready() {
                 super.ready();
                 console.log("arrayvalue", this.arrayvalue, "stringValue", this.stringValue);
             }

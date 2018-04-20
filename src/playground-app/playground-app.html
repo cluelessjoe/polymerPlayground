@@ -15,9 +15,13 @@
         </style>
         <h2>Affichage de la propriété prop1 : [[prop1]]!</h2>
         <br/>
+        <button on-click="modifyArray"  >
+            Click me to push element in the array displayed below :)
+        </button>
         <playground-component arrayvalue="{{arrayProp}}" string-value="{{stringProp}}"></playground-component>
         <localized-component-demo></localized-component-demo>
         <leaf-wrapper></leaf-wrapper>
+
     </template>
 
     <script>
@@ -26,11 +30,13 @@
          * @polymer
          */
         class PlaygroundApp extends LocalizedComponent {
-            constructor(){
+            constructor() {
                 super();
                 this.arrayProp = ['Apple', 'Banana'];
+                this.push('arrayProp', 'PushInConstructor');
                 this.stringProp = "bingo";
             }
+
             static get is() {
                 return 'playground-app';
             }
@@ -42,6 +48,17 @@
                         value: 'playground-app'
                     }
                 };
+            }
+
+            modifyArray(event,  detail,  target){
+                console.log("in modifyArray");
+                this.push('arrayProp', ['ClickedOnce']);
+            }
+
+            ready(){
+                super.ready();
+                this.push('arrayProp', 'PushInReady');
+
             }
         }
 
