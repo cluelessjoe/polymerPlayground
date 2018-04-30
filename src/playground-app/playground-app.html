@@ -1,6 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
 <link rel="import" href="../playground-component/playground-component.html">
+<link rel="import" href="../combined-mixin/base-mixin-demo-component.html">
 <link rel="import" href="../localized-component-demo/localized-component-demo.html">
 <link rel="import" href="../leaf-wrapper/leaf-wrapper.html">
 
@@ -25,6 +26,10 @@
         <hr>
         <h2>Localised component demo</h2>
         <localized-component-demo></localized-component-demo>
+        <hr>
+        <h2>Mixin playground</h2>
+        <p>A deduplicated mixin</p>
+        <base-mixin-demo-component></base-mixin-demo-component>
         <hr>
         <h2>Leaflet wrapper demo</h2>
         <leaf-wrapper></leaf-wrapper>
@@ -67,7 +72,6 @@
                     this.set('arrayprop', ['Set' + rdnValue]);
                 }
             }
-
         }
 
         window.customElements.define(PlaygroundApp.is, PlaygroundApp);

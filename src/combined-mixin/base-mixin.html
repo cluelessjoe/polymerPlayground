@@ -1,0 +1,25 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+
+<script>
+    // Create my namespace, if it doesn't exist
+    if (!window.BaseMixin) {
+        window.BaseMixin = {};
+    }
+    var readyCount = 0;
+    /* @polymerMixin */
+    BaseMixin.Base = Polymer.dedupingMixin((element) => class extends element {
+
+        baseMixinStuff(value) {
+            let message = "Given value" + value + " in " + this.tagName + ". Ready in Base mixin called " + readyCount + " times.";
+            console.log(message);
+            return message;
+        }
+
+        ready() {
+            super.ready();
+            console.log("BaseMixin ready called");
+            readyCount += 1;
+        }
+    });
+</script>

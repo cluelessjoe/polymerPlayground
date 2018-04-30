@@ -1,0 +1,19 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+
+<script>
+    // Create my namespace, if it doesn't exist
+    if (!window.BaseMixin) {
+        window.BaseMixin = {};
+    }
+    /* @polymerMixin */
+    BaseMixin.Combined = Polymer.dedupingMixin((element) => class extends BaseMixin.Base(element) {
+
+        combineMixinStuff(value) {
+            let message = "COMBINED-" + this.baseMixinStuff(value);
+            console.log(message);
+            return message;
+        }
+
+    });
+</script>
