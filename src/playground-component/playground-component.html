@@ -15,24 +15,26 @@
             }
         </style>
 
-        <h3>A component output</h3>
-        <p class="cssRed">imported css style if background red</p>
-        <p class="cssBlue">imported css style if background blue</p>
-        <p>Array property:</p>
         <ul>
             <li><p>Content of the array '{{arrayvalue}}'
                 <p>
             </li>
-            <li><p>Array's splices '{{splices}}'</p>
+            <li><p>Array observed splices '{{splices}}'</p>
+            <li><p>Array observed values '{{values}}'</p>
             </li>
         </ul>
+        <p>=> path observers don't see push values, splices observers don't see set values</p>
+        <hr>
+        <h2>Css import </h2>
+        <p class="cssRed">imported css style if background red</p>
+        <p class="cssBlue">imported css style if background blue</p>
+
     </template>
     <script>
         class PlaygroundComponent extends Polymer.Element {
 
             constructor() {
                 super();
-//                console.log(this.tagName);
                 this.splices = null;
             }
 
@@ -45,9 +47,6 @@
                     arrayvalue: {
                         type: Array,
                         value: null
-                    },
-                    arrayslices: {
-                        type: Array
                     }
                 };
             }
@@ -55,12 +54,18 @@
             static get observers() {
                 console.log("observers called");
                 return [
-                    '_arrayValueSplicesObserver(arrayvalue.splices)'
+                    '_arrayValueSplicesObserver(arrayvalue.splices)',
+                    '_arrayValueObserver(arrayvalue)'
                 ];
             }
 
             static get is() {
                 return 'playground-component';
+            }
+
+            _arrayValueObserver(arrayvalue) {
+                console.log("_arrayValueObserver", arrayvalue);
+                this.values = JSON.stringify(arrayvalue)
             }
 
             _arrayValueSplicesObserver(splicesValue) {
