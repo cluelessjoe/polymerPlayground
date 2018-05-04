@@ -10,8 +10,17 @@
     /* @polymerMixin */
     BaseMixin.Base = Polymer.dedupingMixin((element) => class extends element {
 
+        static get properties() {
+            return {
+                incoming: {
+                    value: null,
+                    type: String
+                }
+            }
+        }
+
         baseMixinStuff(value) {
-            let message = "Given value" + value + " in " + this.tagName + ". Ready in Base mixin called " + readyCount + " times.";
+            let message = "Given value" + value + " in " + this.tagName + ". Incoming property is " + this.get('incoming') + ". Ready in Base mixin called " + readyCount + " times.";
             console.log(message);
             return message;
         }

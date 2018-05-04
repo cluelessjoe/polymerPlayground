@@ -1,0 +1,28 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="./base-mixin.html">
+<link rel="import" href="./combined-mixin.html">
+
+<dom-module id="base-mixin-demo-second-component">
+    <template>
+        <h3>Second component</h3>
+        <p>Base mixin output: {{base-mixin-output}}</p>
+        <p>Combined mixin output: {{combined-mixin-output}}</p>
+    </template>
+    <script>
+        class BaseMixinDemoSecondComponent extends BaseMixin.Combined(BaseMixin.Base(Polymer.Element)) {
+
+            static get is() {
+                return 'base-mixin-demo-second-component';
+            }
+
+            ready() {
+                super.ready();
+                this.set("base-mixin-output", this.baseMixinStuff("BaseMixinDemoComponent"));
+                this.set("combined-mixin-output", this.combineMixinStuff("BaseMixinDemoComponent"));
+            }
+        }
+
+        customElements.define(BaseMixinDemoSecondComponent.is, BaseMixinDemoSecondComponent);
+    </script>
+</dom-module>

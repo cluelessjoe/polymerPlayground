@@ -2,6 +2,7 @@
 
 <link rel="import" href="../playground-component/playground-component.html">
 <link rel="import" href="../combined-mixin/base-mixin-demo-component.html">
+<link rel="import" href="../combined-mixin/base-mixin-demo-second-component.html">
 <link rel="import" href="../localized-component-demo/localized-component-demo.html">
 <link rel="import" href="../leaf-wrapper/leaf-wrapper.html">
 
@@ -29,7 +30,14 @@
         <hr>
         <h2>Mixin playground</h2>
         <p>A deduplicated mixin</p>
-        <base-mixin-demo-component></base-mixin-demo-component>
+        <base-mixin-demo-component incoming="first"></base-mixin-demo-component>
+        <base-mixin-demo-second-component incoming="second"></base-mixin-demo-second-component>
+        <p>=> deduping means:</p>
+        <ul>
+            <li>ready and the like called once per mixin per component</li>
+            <li>state and properties per component instances</li>
+        </ul>
+
         <hr>
         <h2>Leaflet wrapper demo</h2>
         <leaf-wrapper></leaf-wrapper>
