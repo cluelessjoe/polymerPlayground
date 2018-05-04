@@ -1,5 +1,11 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
+<link rel="import" href="../../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+
 <link rel="import" href="../playground-component/playground-component.html">
 <link rel="import" href="../combined-mixin/base-mixin-demo-component.html">
 <link rel="import" href="../combined-mixin/base-mixin-demo-second-component.html">
@@ -14,33 +20,66 @@
             :host {
                 display: block;
             }
+
+            [app-header] {
+                background-color: #158d4f;
+                color: #fff;
+            }
+
+
         </style>
-        <h2>Affichage de propriété</h2>
-        <p> Affichage de la propriété prop1 : [[prop1]]!</p>
-        <hr>
-        <h2>Array property observation </h2>
-        <button on-click="modifyArray">
-            Click me to push or set element in the array displayed below :)
-        </button>
-        <playground-component arrayvalue="[[arrayprop]]" string-value="{{stringProp}}"></playground-component>
+        <app-drawer-layout >
+            <app-drawer slot="drawer">
+                <app-toolbar app-header>
+                    <div app-name>PolymerPlayground</div>
+                </app-toolbar>
+                <div>
+                    Side content
+                </div>
+            </app-drawer>
+            <app-header-layout main>
+                <app-header app-header slot="header" fixed>
+                    <app-toolbar header-app-toolbar>
+                        <span class="flex">
+                            <div class="flex">
+                                Titre de page
+                            </div>
+                        </span>
+                    </app-toolbar>
+                </app-header>
+                <div>
 
-        <hr>
-        <h2>Localised component demo</h2>
-        <localized-component-demo></localized-component-demo>
-        <hr>
-        <h2>Mixin playground</h2>
-        <p>A deduplicated mixin</p>
-        <base-mixin-demo-component incoming="first"></base-mixin-demo-component>
-        <base-mixin-demo-second-component incoming="second"></base-mixin-demo-second-component>
-        <p>=> deduping means:</p>
-        <ul>
-            <li>ready and the like called once per mixin per component</li>
-            <li>state and properties per component instances</li>
-        </ul>
+                    <h2>Affichage de propriété</h2>
+                    <p> Affichage de la propriété prop1 : [[prop1]]!</p>
+                    <hr>
+                    <h2>Array property observation </h2>
+                    <button on-click="modifyArray">
+                        Click me to push or set element in the array displayed below :)
+                    </button>
+                    <playground-component arrayvalue="[[arrayprop]]"
+                                          string-value="{{stringProp}}"></playground-component>
+                    <!--
+                                <hr>
+                                <h2>Localised component demo</h2>
+                                <localized-component-demo></localized-component-demo>
+                                <hr>
+                                <h2>Mixin playground</h2>
+                                <p>A deduplicated mixin</p>
+                                <base-mixin-demo-component incoming="first"></base-mixin-demo-component>
+                                <base-mixin-demo-second-component incoming="second"></base-mixin-demo-second-component>
+                                <p>=> deduping means:</p>
+                                <ul>
+                                    <li>ready and the like called once per mixin per component</li>
+                                    <li>state and properties per component instances</li>
+                                </ul>
 
-        <hr>
-        <h2>Leaflet wrapper demo</h2>
-        <leaf-wrapper></leaf-wrapper>
+                 <hr>
+                                <h2>Leaflet wrapper demo</h2>
+                                <leaf-wrapper></leaf-wrapper>
+            -->
+                </div>
+            </app-header-layout>
+        </app-drawer-layout>
 
     </template>
 
